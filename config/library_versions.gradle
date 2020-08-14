@@ -3,6 +3,7 @@ ext {
     // Arch
     //  kotlin_version = "" Configured in top-level build.gradle
     coroutines_version = "1.3.8"
+    javax_inject_version = "1"
 
     // Android
     androidx_core_version = "1.3.1"
