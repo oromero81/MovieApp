@@ -37,6 +37,7 @@ android {
 kapt {
     correctErrorTypes = true
 }
+
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation project(":domain")
@@ -50,9 +51,15 @@ dependencies {
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:$jp_hilt_version"
     kapt "androidx.hilt:hilt-compiler:$jp_hilt_version"
     implementation "androidx.fragment:fragment-ktx:$jp_fragment_version"
+    implementation "androidx.constraintlayout:constraintlayout:$jp_constraintlayout_version"
+    implementation "androidx.legacy:legacy-support-v4:$jp_legacy_version"
+    implementation "androidx.recyclerview:recyclerview:$jp_recyclerview_version"
 
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    implementation "com.google.android.material:material:$material_version"
+
+    implementation "com.squareup.picasso:picasso:$picasso_version"
 
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:$junit_ext_version"
