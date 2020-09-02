@@ -1,15 +1,27 @@
 ext {
 
     // Arch
-    //  kotlin_version = "" Configured in top-level build.gradle
+    // kotlin_version = "" Configured in top-level build.gradle
+    // hilt_version = "" Configured in top-level build.gradle
     coroutines_version = "1.3.8"
+    javax_inject_version = "1"
 
-    // Android
-    androidx_core_version = "1.3.1"
-    androidx_appcompat_version = "1.1.0"
+    // Jetpack
+    jp_core_version = "1.3.1"
+    jp_appcompat_version = "1.2.0"
+    jp_hilt_version = "1.0.0-alpha02"
+    jp_fragment_version = "1.2.5"
+    jp_constraintlayout_version = "2.0.1"
+    jp_legacy_version = "1.0.0"
+    jp_recyclerview_version = "1.1.0"
 
     // Testing
     junit_version = "4.13"
-    junit_ext_version = "1.1.1"
-    espresso_core_version = "3.2.0"
+    junit_ext_version = "1.1.2"
+    espresso_core_version = "3.3.0"
+
+    retrofit_version = "2.9.0"
+    okhttp_version = "3.12.1"
+    picasso_version = "2.8"
+    material_version = "1.2.0"
 }
