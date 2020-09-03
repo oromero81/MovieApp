@@ -3,6 +3,7 @@ package cat.oscarromero.data
 import cat.oscarromero.data.adapter.NetworkResponse
 import cat.oscarromero.data.adapter.NetworkResponseAdapterFactory
 import cat.oscarromero.data.dto.GenericErrorDto
+import cat.oscarromero.data.dto.MovieDetailsDto
 import cat.oscarromero.data.dto.MoviesResponseDto
 import okhttp3.Cache
 import okhttp3.OkHttpClient
@@ -10,6 +11,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 import java.io.File
 import java.util.concurrent.TimeUnit
@@ -23,6 +25,14 @@ interface MovieApi {
         @Query(QUERY_PARAM_API_KEY) apiKey: String,
         @Query(QUERY_PARAM_LANGUAGE) language: String
     ): GenericResponse<MoviesResponseDto>
+
+    @GET("movie/{$PATH_ID}")
+    suspend fun getMovieDetails(
+        @Path(PATH_ID) id: Int,
+        @Query(QUERY_PARAM_API_KEY) apiKey: String,
+        @Query(QUERY_PARAM_LANGUAGE) language: String,
+        @Query(QUERY_PARAM_APPEND_TO_RESPONSE) appendToResponse: String
+    ): GenericResponse<MovieDetailsDto>
 
     companion object {
         private const val CACHE_SIZE: Long = 20 * 1024 * 1024
