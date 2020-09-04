@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
     compileSdkVersion android_compile_sdk_version
@@ -54,6 +55,8 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$jp_constraintlayout_version"
     implementation "androidx.legacy:legacy-support-v4:$jp_legacy_version"
     implementation "androidx.recyclerview:recyclerview:$jp_recyclerview_version"
+    implementation "androidx.navigation:navigation-fragment-ktx:$jp_navigation_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$jp_navigation_version"
 
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"

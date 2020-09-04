@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.navArgs
 import cat.oscarromero.movieapp.R
 import cat.oscarromero.movieapp.core.loadImageFromUrl
 import cat.oscarromero.movieapp.ui.viewmodel.MovieDetailsViewModel
@@ -41,5 +42,9 @@ class MovieDetailsFragment : Fragment() {
             durationTextView.text = it.duration
             descriptionTextView.text = it.description
         })
+
+        val args: MovieDetailsFragmentArgs by navArgs()
+
+        movieDetailsViewModel.loadMovie(args.movieId)
     }
 }

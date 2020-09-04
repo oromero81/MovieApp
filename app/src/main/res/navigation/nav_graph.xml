@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listOfMoviesFragment">
+
+    <fragment
+        android:id="@+id/listOfMoviesFragment"
+        android:name="cat.oscarromero.movieapp.ui.view.listofmovies.ListOfMoviesFragment"
+        android:label="ListOfMoviesFragment">
+        <action
+            android:id="@+id/action_listOfMoviesFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailsFragment"
+        android:name="cat.oscarromero.movieapp.ui.view.movidetails.MovieDetailsFragment"
+        android:label="MovieDetailsFragment">
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+    </fragment>
+</navigation>
