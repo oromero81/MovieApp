@@ -14,6 +14,7 @@ ext {
     jp_constraintlayout_version = "2.0.1"
     jp_legacy_version = "1.0.0"
     jp_recyclerview_version = "1.1.0"
+    // jp_navigation_version = "" Configured in top-level build.gradle
 
     // Testing
     junit_version = "4.13"

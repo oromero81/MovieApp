@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import cat.oscarromero.movieapp.R
 import cat.oscarromero.movieapp.ui.viewmodel.ListOfMoviesViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -17,7 +18,11 @@ import kotlinx.android.synthetic.main.fragment_list_of_movies.*
 class ListOfMoviesFragment : Fragment() {
 
     private val listOfMoviesViewModel: ListOfMoviesViewModel by viewModels()
-    private val moviesAdapter = ListOfMoviesAdapter()
+    private val moviesAdapter = ListOfMoviesAdapter {
+        val action =
+            ListOfMoviesFragmentDirections.actionListOfMoviesFragmentToMovieDetailsFragment(it.id)
+        findNavController().navigate(action)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,10 +46,5 @@ class ListOfMoviesFragment : Fragment() {
         listOfMoviesViewModel.loadMovies()
 
         moviesRecyclerView.adapter = moviesAdapter
-    }
-
-    companion object {
-        fun newInstance() =
-            ListOfMoviesFragment()
     }
 }

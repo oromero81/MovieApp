@@ -6,7 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import cat.oscarromero.movieapp.R
 import cat.oscarromero.movieapp.ui.model.MovieModel
 
-class ListOfMoviesAdapter : RecyclerView.Adapter<MovieViewHolder>() {
+class ListOfMoviesAdapter(private val movieSelected: (MovieModel) -> Unit) :
+    RecyclerView.Adapter<MovieViewHolder>() {
 
     private val movies: MutableList<MovieModel> = mutableListOf()
 
@@ -19,7 +20,7 @@ class ListOfMoviesAdapter : RecyclerView.Adapter<MovieViewHolder>() {
         movies.size
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        holder.bind(movies[position])
+        holder.bind(movies[position], movieSelected)
     }
 
     fun loadMovies(movies: List<MovieModel>) {
