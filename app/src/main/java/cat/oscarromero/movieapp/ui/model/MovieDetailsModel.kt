@@ -12,7 +12,8 @@ data class MovieDetailsModel(
     val description: String,
     val releaseDate: String,
     val duration: String,
-    val vote: String
+    val vote: String,
+    val videos: List<VideoModel>
 ) {
     companion object {
         fun fromEntity(movieDetails: MovieDetails): MovieDetailsModel {
@@ -25,7 +26,8 @@ data class MovieDetailsModel(
                     description,
                     SimpleDateFormat("yyyy").format(releaseDate),
                     "$duration min",
-                    vote.toString()
+                    vote.toString(),
+                    videos.map { VideoModel(it.id, it.type) }
                 )
             }
         }
