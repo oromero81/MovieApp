@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/listOfMoviesFragment"
         android:name="cat.oscarromero.movieapp.ui.view.listofmovies.ListOfMoviesFragment"
-        android:label="ListOfMoviesFragment">
+        android:label="@string/app_name">
         <action
             android:id="@+id/action_listOfMoviesFragment_to_movieDetailsFragment"
             app:destination="@id/movieDetailsFragment" />
@@ -15,7 +15,7 @@
     <fragment
         android:id="@+id/movieDetailsFragment"
         android:name="cat.oscarromero.movieapp.ui.view.movidetails.MovieDetailsFragment"
-        android:label="MovieDetailsFragment">
+        android:label="@string/app_name">
         <argument
             android:name="movieId"
             app:argType="integer" />
