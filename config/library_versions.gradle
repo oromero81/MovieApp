@@ -25,4 +25,5 @@ ext {
     okhttp_version = "3.12.1"
     picasso_version = "2.8"
     material_version = "1.2.0"
+    exoplayer_version = "2.12.0"
 }

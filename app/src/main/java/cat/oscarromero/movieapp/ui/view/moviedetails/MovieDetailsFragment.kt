@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import cat.oscarromero.movieapp.R
 import cat.oscarromero.movieapp.core.loadImageFromUrl
@@ -18,7 +19,11 @@ import kotlinx.android.synthetic.main.fragment_movie_details.*
 class MovieDetailsFragment : Fragment() {
 
     private val movieDetailsViewModel: MovieDetailsViewModel by viewModels()
-    private val videosAdapter = VideosAdapter {}
+    private val videosAdapter = VideosAdapter {
+        val action =
+            MovieDetailsFragmentDirections.actionMovieDetailsFragmentToVideoPlayerFragment(it.videoId)
+        findNavController().navigate(action)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

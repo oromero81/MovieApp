@@ -1,5 +1,6 @@
 package cat.oscarromero.movieapp.ui.view
 
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -28,7 +29,13 @@ class MainActivity : AppCompatActivity() {
                     appBarLayout.setExpanded(true, false)
                     topAppBar.visibility = View.GONE
                 }
-                R.id.listOfMoviesFragment -> topAppBar.visibility = View.VISIBLE
+                R.id.listOfMoviesFragment -> {
+                    topAppBar.visibility = View.VISIBLE
+                }
+                R.id.videoPlayerFragment -> {
+                    requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
+                    topAppBar.visibility = View.GONE
+                }
             }
         }
     }
