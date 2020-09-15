@@ -51,7 +51,7 @@ class MoviesRepositoryNetwork @Inject constructor(private val movieApi: MovieApi
                         runtime,
                         videos.results
                             .filter { it.site == YOUTUBE }
-                            .map { Video(it.id, Video.Site.YOUTUBE, it.type) },
+                            .map { Video(it.key, Video.Site.YOUTUBE, it.type) },
                         voteAverage.toFloat()
                     )
                 )
