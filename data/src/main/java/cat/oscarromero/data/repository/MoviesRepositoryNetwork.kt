@@ -10,7 +10,6 @@ import cat.oscarromero.domain.repository.MoviesRepository
 import cat.oscarromero.domain.usecase.Error
 import cat.oscarromero.domain.usecase.Result
 import java.text.SimpleDateFormat
-import java.util.*
 import javax.inject.Inject
 
 class MoviesRepositoryNetwork @Inject constructor(private val movieApi: MovieApi) :
@@ -18,7 +17,7 @@ class MoviesRepositoryNetwork @Inject constructor(private val movieApi: MovieApi
 
     override suspend fun getMovies(): Result<Error, List<Movie>> {
         val response =
-            movieApi.getPopularMovies(BuildConfig.TMDB_API_KEY, Locale.getDefault().toLanguageTag())
+            movieApi.getPopularMovies(BuildConfig.TMDB_API_KEY, QUERY_PARAM_LANGUAGE_VALUE)
 
         return if (response is NetworkResponse.Success) {
             Result.Success(response.body.results.map { Movie(it.id, it.title, it.posterPath) })
@@ -31,7 +30,7 @@ class MoviesRepositoryNetwork @Inject constructor(private val movieApi: MovieApi
         val response = movieApi.getMovieDetails(
             movieId,
             BuildConfig.TMDB_API_KEY,
-            Locale.getDefault().toLanguageTag(),
+            QUERY_PARAM_LANGUAGE_VALUE,
             APPEND_TO_RESPONSE_VIDEOS
         )
 
@@ -51,7 +50,7 @@ class MoviesRepositoryNetwork @Inject constructor(private val movieApi: MovieApi
                         runtime,
                         videos.results
                             .filter { it.site == YOUTUBE }
-                            .map { Video(it.id, Video.Site.YOUTUBE) },
+                            .map { Video(it.key, Video.Site.YOUTUBE, it.type) },
                         voteAverage.toFloat()
                     )
                 )

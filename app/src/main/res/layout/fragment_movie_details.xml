@@ -79,13 +79,28 @@
             tools:text="123 min" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/videosRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/space_M"
+        android:paddingEnd="@dimen/space_M"
+        android:paddingTop="@dimen/space_XL"
+        android:paddingBottom="@dimen/space_XL"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/backImageView"
+        android:background="@color/colorPrimaryVariant" />
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/descriptionTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/space_M"
+        android:paddingStart="@dimen/space_M"
+        android:paddingTop="@dimen/space_M"
+        android:paddingEnd="@dimen/space_M"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/backImageView"
+        app:layout_constraintTop_toBottomOf="@id/videosRecyclerView"
         tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

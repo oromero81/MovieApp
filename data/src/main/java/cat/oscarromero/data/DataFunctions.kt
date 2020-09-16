@@ -14,6 +14,6 @@ fun handleGenericResponseError(response: GenericResponse<Any>): Result<Error, No
             )
         is NetworkResponse.UnknownError ->
             Result.Failure(Error.ServerError(response.error.message ?: "Error without message"))
-        else -> Result.Failure(Error.UnknownError)
+        else -> Result.Failure(Error.UnknownError())
     }
 }
