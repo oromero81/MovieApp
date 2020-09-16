@@ -7,6 +7,7 @@ const val YOUTUBE_RESPONSE_KEY = "player_response="
 const val QUERY_PARAM_API_KEY = "api_key"
 const val QUERY_PARAM_LANGUAGE = "language"
 const val QUERY_PARAM_APPEND_TO_RESPONSE = "append_to_response"
+const val QUERY_PARAM_LANGUAGE_VALUE = "en-US"
 
 const val PATH_ID = "id"
 
