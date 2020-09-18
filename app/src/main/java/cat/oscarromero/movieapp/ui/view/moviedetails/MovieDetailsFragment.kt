@@ -12,6 +12,7 @@ import androidx.navigation.fragment.navArgs
 import cat.oscarromero.movieapp.R
 import cat.oscarromero.movieapp.core.loadImageFromUrl
 import cat.oscarromero.movieapp.ui.viewmodel.MovieDetailsViewModel
+import com.google.android.material.chip.Chip
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_movie_details.*
 
@@ -52,6 +53,12 @@ class MovieDetailsFragment : Fragment() {
                 videosRecyclerView.visibility = View.VISIBLE
             } else {
                 videosRecyclerView.visibility = View.GONE
+            }
+
+            it.genres.forEach { genre ->
+                val chip = Chip(requireContext())
+                chip.text = genre.name
+                genreChipGroup.addView(chip)
             }
         })
 
