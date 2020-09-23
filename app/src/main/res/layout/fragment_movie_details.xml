@@ -1,122 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/backImageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/ph_movie_details" />
-
-    <View
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/bg_overlay_detail"
-        app:layout_constraintBottom_toBottomOf="@id/backImageView"
-        app:layout_constraintEnd_toEndOf="@id/backImageView"
-        app:layout_constraintStart_toStartOf="@id/backImageView"
-        app:layout_constraintTop_toTopOf="@id/backImageView" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/voteTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/space_XL"
-        android:layout_marginBottom="@dimen/space_XL"
-        android:background="@drawable/bg_vote"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/backImageView"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="8,9" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/titleTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/infoLayout"
-        app:layout_constraintEnd_toEndOf="@id/infoLayout"
-        app:layout_constraintStart_toStartOf="@id/infoLayout"
-        app:textAllCaps="true"
-        tools:text="Thelma y Louise" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/infoLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/space_L"
-        android:layout_marginEnd="@dimen/space_L"
-        app:layout_constraintBottom_toBottomOf="@id/voteTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/voteTextView">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/dateTextView"
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/backImageView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toStartOf="parent"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="1991" />
+            tools:src="@drawable/ph_movie_details" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_overlay_detail"
+            app:layout_constraintBottom_toBottomOf="@id/backImageView"
+            app:layout_constraintEnd_toEndOf="@id/backImageView"
+            app:layout_constraintStart_toStartOf="@id/backImageView"
+            app:layout_constraintTop_toTopOf="@id/backImageView" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/durationTextView"
+            android:id="@+id/voteTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/space_XL"
+            android:layout_marginBottom="@dimen/space_XL"
+            android:background="@drawable/bg_vote"
             android:textColor="@color/white"
-            app:layout_constraintStart_toEndOf="@id/dateTextView"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="123 min" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/backImageView"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="8,9" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/videosRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryVariant"
-        android:orientation="horizontal"
-        android:paddingStart="@dimen/space_M"
-        android:paddingTop="@dimen/space_XL"
-        android:paddingEnd="@dimen/space_M"
-        android:paddingBottom="@dimen/space_XL"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/backImageView" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/descriptionTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="@dimen/space_M"
-        android:paddingTop="@dimen/space_M"
-        android:paddingEnd="@dimen/space_M"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/videosRecyclerView"
-        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
-
-    <HorizontalScrollView
-        android:padding="@dimen/space_M"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/descriptionTextView">
-
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/genreChipGroup"
-
-            android:layout_width="wrap_content"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/titleTextView"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:singleLine="true" />
-    </HorizontalScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/infoLayout"
+            app:layout_constraintEnd_toEndOf="@id/infoLayout"
+            app:layout_constraintStart_toStartOf="@id/infoLayout"
+            app:textAllCaps="true"
+            tools:text="Thelma y Louise" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/infoLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_L"
+            android:layout_marginEnd="@dimen/space_L"
+            app:layout_constraintBottom_toBottomOf="@id/voteTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/voteTextView">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/dateTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1991" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/durationTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_XL"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@id/dateTextView"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="123 min" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/videosRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryVariant"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/space_M"
+            android:paddingTop="@dimen/space_XL"
+            android:paddingEnd="@dimen/space_M"
+            android:paddingBottom="@dimen/space_XL"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/backImageView" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/descriptionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/space_M"
+            android:paddingTop="@dimen/space_M"
+            android:paddingEnd="@dimen/space_M"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/videosRecyclerView"
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/creditsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/descriptionTextView"
+            android:paddingStart="@dimen/space_M"
+            android:paddingTop="@dimen/space_M"
+            android:paddingEnd="@dimen/space_M" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:padding="@dimen/space_M"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/creditsRecyclerView">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/genreChipGroup"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:singleLine="true" />
+        </HorizontalScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

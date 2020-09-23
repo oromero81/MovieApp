@@ -25,6 +25,7 @@ class MovieDetailsFragment : Fragment() {
             MovieDetailsFragmentDirections.actionMovieDetailsFragmentToVideoPlayerFragment(it.videoId)
         findNavController().navigate(action)
     }
+    private val creditsAdapter = CreditsAdapter {}
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -60,11 +61,13 @@ class MovieDetailsFragment : Fragment() {
                 chip.text = genre.name
                 genreChipGroup.addView(chip)
             }
+            creditsAdapter.loadItems(it.credits)
         })
 
         val args: MovieDetailsFragmentArgs by navArgs()
 
         movieDetailsViewModel.loadMovie(args.movieId)
         videosRecyclerView.adapter = videosAdapter
+        creditsRecyclerView.adapter = creditsAdapter
     }
 }

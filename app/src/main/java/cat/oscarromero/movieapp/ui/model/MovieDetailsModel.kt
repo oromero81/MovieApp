@@ -1,6 +1,7 @@
 package cat.oscarromero.movieapp.ui.model
 
 import cat.oscarromero.domain.model.MovieDetails
+import cat.oscarromero.movieapp.THUMBNAIL_CREDITS_URL_BASE
 import cat.oscarromero.movieapp.THUMBNAIL_URL_BASE
 import java.text.SimpleDateFormat
 
@@ -13,7 +14,8 @@ data class MovieDetailsModel(
     val releaseDate: String,
     val duration: String,
     val vote: String,
-    val videos: List<VideoModel>
+    val videos: List<VideoModel>,
+    val credits: List<CreditModel>
 ) {
     companion object {
         fun fromEntity(movieDetails: MovieDetails): MovieDetailsModel {
@@ -27,7 +29,15 @@ data class MovieDetailsModel(
                     SimpleDateFormat("yyyy").format(releaseDate),
                     "$duration min",
                     vote.toString(),
-                    videos.map { VideoModel(it.id, it.type) }
+                    videos.map { VideoModel(it.id, it.type) },
+                    cast.map {
+                        CreditModel(
+                            it.id,
+                            it.name,
+                            it.job,
+                            "$THUMBNAIL_CREDITS_URL_BASE${it.thumbnail}"
+                        )
+                    }
                 )
             }
         }

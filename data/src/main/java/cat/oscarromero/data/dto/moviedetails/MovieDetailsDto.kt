@@ -1,4 +1,4 @@
-package cat.oscarromero.data.dto
+package cat.oscarromero.data.dto.moviedetails
 
 
 import com.google.gson.annotations.SerializedName
@@ -55,5 +55,7 @@ data class MovieDetailsDto(
     @SerializedName("vote_count")
     val voteCount: Int,
     @SerializedName("videos")
-    val videos: VideosDto
+    val videos: VideosDto,
+    @SerializedName("credits")
+    val credits: CreditsDto
 )

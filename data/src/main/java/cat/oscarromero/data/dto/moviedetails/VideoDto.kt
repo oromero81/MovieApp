@@ -1,4 +1,4 @@
-package cat.oscarromero.data.dto
+package cat.oscarromero.data.dto.moviedetails
 
 
 import com.google.gson.annotations.SerializedName

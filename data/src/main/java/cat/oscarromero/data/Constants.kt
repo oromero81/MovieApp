@@ -12,5 +12,5 @@ const val QUERY_PARAM_LANGUAGE_VALUE = "en-US"
 const val PATH_ID = "id"
 
 const val API_DATE_FORMAT = "yyyy-MM-dd"
-const val APPEND_TO_RESPONSE_VIDEOS = "videos"
+const val APPEND_TO_RESPONSE_VIDEOS = "videos,credits"
 const val YOUTUBE = "YouTube"
