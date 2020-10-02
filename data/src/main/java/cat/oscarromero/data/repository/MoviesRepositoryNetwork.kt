@@ -2,10 +2,9 @@ package cat.oscarromero.data.repository
 
 import cat.oscarromero.data.*
 import cat.oscarromero.data.adapter.NetworkResponse
-import cat.oscarromero.domain.model.Genre
-import cat.oscarromero.domain.model.Movie
-import cat.oscarromero.domain.model.MovieDetails
-import cat.oscarromero.domain.model.Video
+import cat.oscarromero.data.dto.moviedetails.CastDto
+import cat.oscarromero.data.dto.moviedetails.CrewDto
+import cat.oscarromero.domain.model.*
 import cat.oscarromero.domain.repository.MoviesRepository
 import cat.oscarromero.domain.usecase.Error
 import cat.oscarromero.domain.usecase.Result
@@ -51,12 +50,24 @@ class MoviesRepositoryNetwork @Inject constructor(private val movieApi: MovieApi
                         videos.results
                             .filter { it.site == YOUTUBE }
                             .map { Video(it.key, Video.Site.YOUTUBE, it.type) },
-                        voteAverage.toFloat()
+                        voteAverage.toFloat(),
+                        getCast(credits.cast, credits.crew)
                     )
                 )
             }
         } else {
             handleGenericResponseError(response)
         }
+    }
+
+    private fun getCast(cast: List<CastDto>, crew: List<CrewDto>): List<Cast> {
+        return crew
+            .filter { dto -> dto.department == "Directing" && dto.job == "Director" }
+            .map { Cast(it.id, it.name, it.job, it.profilePath ?: "") }
+            .plus(
+                cast
+                    .filter { dto -> dto.order < 10 }
+                    .map { Cast(it.id, it.name, it.character, it.profilePath ?: "") })
+
     }
 }

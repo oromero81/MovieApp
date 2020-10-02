@@ -12,6 +12,7 @@ import androidx.navigation.fragment.navArgs
 import cat.oscarromero.movieapp.R
 import cat.oscarromero.movieapp.core.loadImageFromUrl
 import cat.oscarromero.movieapp.ui.viewmodel.MovieDetailsViewModel
+import com.google.android.material.chip.Chip
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_movie_details.*
 
@@ -24,6 +25,7 @@ class MovieDetailsFragment : Fragment() {
             MovieDetailsFragmentDirections.actionMovieDetailsFragmentToVideoPlayerFragment(it.videoId)
         findNavController().navigate(action)
     }
+    private val creditsAdapter = CreditsAdapter {}
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,11 +55,19 @@ class MovieDetailsFragment : Fragment() {
             } else {
                 videosRecyclerView.visibility = View.GONE
             }
+
+            it.genres.forEach { genre ->
+                val chip = Chip(requireContext())
+                chip.text = genre.name
+                genreChipGroup.addView(chip)
+            }
+            creditsAdapter.loadItems(it.credits)
         })
 
         val args: MovieDetailsFragmentArgs by navArgs()
 
         movieDetailsViewModel.loadMovie(args.movieId)
         videosRecyclerView.adapter = videosAdapter
+        creditsRecyclerView.adapter = creditsAdapter
     }
 }

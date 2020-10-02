@@ -13,5 +13,6 @@ data class MovieDetails(
     val releaseDate: Date,
     val duration: Int,
     val videos: List<Video>,
-    val vote: Float
+    val vote: Float,
+    val cast: List<Cast>
 )
